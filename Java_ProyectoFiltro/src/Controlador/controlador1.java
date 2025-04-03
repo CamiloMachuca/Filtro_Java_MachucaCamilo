@@ -29,6 +29,7 @@ public class controlador1 {
         System.out.println("4. Asignar una mision a un ninja");
         System.out.println("5. Marcar una mision como completada");
         System.out.println("6. Mostrar todas las misiones completadas");
+        System.out.println("7. Salir del programa");
         System.out.println("Ingrese la opcion deseada:");  
         Scanner teclado= new Scanner(System.in);
         String opcion= teclado.nextLine();
