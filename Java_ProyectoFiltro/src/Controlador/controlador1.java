@@ -18,10 +18,12 @@ public class controlador1 {
     
     
     public void menu(){
-        
+        boolean buclePrincipal=true;
+        while (buclePrincipal){
         System.out.println("#########################");
         System.out.println("========= Menu =========");
-        System.out.println("1. lista de ninjas ");
+        System.out.println("#########################");
+        System.out.println("1. lista de ninjas con sus habilidades ");
         System.out.println("2. buscar las misiones de un ninja");
         System.out.println("3. buscar las misiones completadas para un ninja especifico");
         System.out.println("4. Asignar una mision a un ninja");
@@ -40,27 +42,44 @@ public class controlador1 {
                 break;
                 
             case "2":
-                NinjaDAO ninjadao=new  NinjaDAO();
-                System.out.println("Ingrese el id del ninja para ver las misiones que puede realizar:");
-                int iddd1= teclado.nextInt();
+                vista1 viss=new vista1();
+ 
+                NinjaDAO ninjadao=new  NinjaDAO();                     
+                int iddd1= viss.buscarMisiones();;
                 ninjadao.MostrarMisiones(iddd1);
                 break;
                 
             case "3":
                 NinjaDAO ninjadao2=new  NinjaDAO();
-                System.out.println("Ingrese el id del ninja para saber que misiones ha completado:");
-                int iddd= teclado.nextInt();
-                ninjadao2.MisionesCompletadas(iddd);
+                vista1 viss1=new vista1();
+                int iddd2= viss1.misionesRealizadasNi();
+                ninjadao2.MisionesCompletadas(iddd2);
                 break;
             case "4":
                 vista1 vist=new vista1();
                 vist.agregarMision();
+                break;
+            case "5":
+                NinjaDAO ninjadao3=new  NinjaDAO();
+                ninjadao3.MisionesSinCompletar();
+                vista1 vistaa=new vista1();
+                vistaa.finalizarMision();
+                break;
+                
+            case "6":
+                NinjaDAO ninjadao4=new  NinjaDAO();
+                ninjadao4.MisionesCompletadasTodaas();
+                break;
+            case "7":
+                System.out.println("Se salio del programa");
+                buclePrincipal=false;
                 break;
                 
             
                 
             default:
                 throw new AssertionError();
+        }
         }
         
 
